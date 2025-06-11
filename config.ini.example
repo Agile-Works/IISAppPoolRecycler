@@ -1,0 +1,23 @@
+[webhook]
+# GitHub webhook secret (generate a secure random string)
+secret=your-webhook-secret-here
+
+# GitHub repository in format: organization/repository
+repository=Agile-Works/IISAppPoolRecycler
+
+# Branch to deploy (usually 'main' or 'master')
+branch=main
+
+# Deployment path on your IIS server
+deployment_path=C:\inetpub\wwwroot\IISRecycler
+
+# Optional: Application pool name to restart after deployment
+app_pool_name=DefaultAppPool
+
+# Optional: Test endpoint to verify deployment
+test_endpoint=http://localhost/IISRecycler/api/webhook/app-pools
+
+# Optional: Notification settings
+notify_email=admin@yourdomain.com
+notify_on_success=true
+notify_on_failure=true
