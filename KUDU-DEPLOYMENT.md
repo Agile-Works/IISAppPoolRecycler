@@ -182,11 +182,15 @@ curl -X POST "https://your-app.azurewebsites.net/api/webhook/uptime-kuma" \
 
 ### Common Issues
 
-1. **Permission Denied**
+1. **MSBuild Error**: `'"\MSBuild.exe"' is not recognized`
+   - **Solution**: This is a common Kudu deployment issue. See the detailed [KUDU-TROUBLESHOOTING.md](KUDU-TROUBLESHOOTING.md) guide.
+   - **Quick Fix**: Use the alternative simple deployment script by renaming `.deployment-simple` to `.deployment`
+
+2. **Permission Denied**
    - Ensure App Service has "Load User Profile" enabled
    - For local IIS, run Application Pool as administrator or with IIS management permissions
 
-2. **Deployment Fails**
+3. **Deployment Fails**
    - Check Kudu deployment logs in Azure Portal → App Service → Deployment Center
    - Verify .NET 6.0 runtime is available
 
