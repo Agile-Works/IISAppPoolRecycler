@@ -163,5 +163,3 @@ Logs are written to the console and can be configured to write to files or other
 - Check the application logs for detailed operation information
 - Use the `/api/webhook/sites` endpoint to verify site configurations
 - Test manual recycling with the `/api/webhook/recycle` endpoint
-
-.
