@@ -216,7 +216,7 @@ CHECKLIST=(
     "✅ Can push to GitHub repository"
     "⬜ Windows IIS server is prepared"
     "⬜ Server has public IP/domain accessible from internet"
-    "⬜ .NET 8.0 Runtime installed on server"
+    "⬜ .NET 6.0 Runtime installed on server"
     "⬜ Git installed on server"
     "⬜ IIS configured with ASP.NET Core module"
     "⬜ Firewall allows HTTP/HTTPS traffic"

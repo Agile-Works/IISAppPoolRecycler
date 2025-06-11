@@ -20,7 +20,7 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercon
 
 ✅ **Your IIS Server Requirements:**
 - [ ] Windows Server with IIS installed and running
-- [ ] .NET 8.0 Runtime installed
+- [ ] .NET 6.0 Runtime installed
 - [ ] Git installed and accessible from command line
 - [ ] PHP installed (optional - PowerShell alternative provided)
 - [ ] Administrator privileges

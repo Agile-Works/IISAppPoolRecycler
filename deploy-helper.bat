@@ -1,5 +1,13 @@
 @echo off
-echo ============================================
+echo ======REM Check if .NET 6.0 is installed
+echo Checking .NET 6.0 Runtime...
+dotnet --list-runtimes | findstr "Microsoft.AspNetCore.App 6." >nul
+if %errorlevel% equ 0 (
+    echo [OK] .NET 6.0 Runtime found
+) else (
+    echo [WARNING] .NET 6.0 Runtime not found
+    echo Please install .NET 6.0 Runtime from:
+    echo https://dotnet.microsoft.com/en-us/download/dotnet/6.0=============================
 echo IIS App Pool Recycler - Deployment Helper
 echo ============================================
 echo.

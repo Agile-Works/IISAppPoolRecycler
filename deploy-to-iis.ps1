@@ -25,14 +25,14 @@ Write-Host "✅ Running as Administrator" -ForegroundColor Green
 # Check prerequisites
 Write-Host "`nChecking prerequisites..." -ForegroundColor Cyan
 
-# Check .NET 8.0
+# Check .NET 6.0
 try {
     $dotnetRuntimes = dotnet --list-runtimes 2>$null
-    if ($dotnetRuntimes -match "Microsoft\.AspNetCore\.App 8\.") {
-        Write-Host "✅ .NET 8.0 Runtime found" -ForegroundColor Green
+    if ($dotnetRuntimes -match "Microsoft\.AspNetCore\.App 6\.") {
+        Write-Host "✅ .NET 6.0 Runtime found" -ForegroundColor Green
     } else {
-        Write-Host "❌ .NET 8.0 Runtime not found" -ForegroundColor Red
-        Write-Host "Please install from: https://dotnet.microsoft.com/en-us/download/dotnet/8.0" -ForegroundColor Yellow
+        Write-Host "❌ .NET 6.0 Runtime not found" -ForegroundColor Red
+        Write-Host "Please install from: https://dotnet.microsoft.com/en-us/download/dotnet/6.0" -ForegroundColor Yellow
         exit 1
     }
 } catch {

@@ -75,7 +75,7 @@ function Test-Prerequisites {
             throw "dotnet not found"
         }
     } catch {
-        Write-Status ".NET not found - please install .NET 8.0 Runtime" "Error"
+        Write-Status ".NET not found - please install .NET 6.0 Runtime" "Error"
         exit 1
     }
     

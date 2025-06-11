@@ -16,7 +16,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new() { 
+    c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+    { 
         Title = "IIS App Pool Recycler API", 
         Version = "v1",
         Description = "API for automatically recycling IIS app pools based on Uptime Kuma webhooks"

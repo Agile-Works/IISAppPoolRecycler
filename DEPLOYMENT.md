@@ -4,7 +4,7 @@
 
 ### Prerequisites
 1. Windows Server with IIS installed and configured
-2. .NET 8.0 Runtime installed
+2. .NET 6.0 Runtime installed
 3. Administrator privileges on the server
 
 ### Installation Steps

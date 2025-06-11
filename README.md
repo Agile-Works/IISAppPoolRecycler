@@ -29,7 +29,7 @@ An ASP.NET Core Web API application that automatically recycles IIS application 
 ## Prerequisites
 
 - Windows Server with IIS installed
-- .NET 8.0 Runtime
+- .NET 6.0 Runtime
 - Administrator privileges (required for IIS management)
 - Uptime Kuma monitoring system
 

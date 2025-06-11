@@ -35,7 +35,7 @@ dotnet --version >nul 2>&1
 if %errorlevel% equ 0 (
     echo .NET installed... ✓
 ) else (
-    echo ERROR: .NET not found. Please install .NET 8.0 Runtime.
+    echo ERROR: .NET not found. Please install .NET 6.0 Runtime.
     echo Download from: https://dotnet.microsoft.com/download
     pause
     exit /b 1

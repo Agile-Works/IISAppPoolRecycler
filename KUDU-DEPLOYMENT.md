@@ -16,14 +16,14 @@ The following files have been added to support Kudu deployment:
 
 ### For Azure Web Apps
 - Azure subscription
-- App Service with .NET 8.0 runtime
+- App Service with .NET 6.0 runtime
 - Application Pool with "Load User Profile" enabled
 - Administrator permissions for IIS management
 
 ### For On-Premises IIS with Kudu
 - Windows Server with IIS installed
 - Kudu installed and configured
-- .NET 8.0 Runtime
+- .NET 6.0 Runtime
 - Git repository access
 
 ## Deployment Steps
@@ -33,7 +33,7 @@ The following files have been added to support Kudu deployment:
 1. **Create Azure Web App**
    ```bash
    # Using Azure CLI
-   az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name myIISRecyclerApp --runtime "DOTNETCORE|8.0"
+   az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name myIISRecyclerApp --runtime "DOTNETCORE|6.0"
    ```
 
 2. **Configure App Service Settings**
@@ -188,7 +188,7 @@ curl -X POST "https://your-app.azurewebsites.net/api/webhook/uptime-kuma" \
 
 2. **Deployment Fails**
    - Check Kudu deployment logs in Azure Portal → App Service → Deployment Center
-   - Verify .NET 8.0 runtime is available
+   - Verify .NET 6.0 runtime is available
 
 3. **App Pool Recycling Fails**
    - Verify the application can access IIS management APIs

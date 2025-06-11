@@ -8,7 +8,7 @@ This guide will walk you through deploying the IIS App Pool Recycler to your IIS
 
 ✅ **Your IIS Server Setup:**
 - [ ] Windows Server with IIS installed and running
-- [ ] .NET 8.0 Runtime installed on the server
+- [ ] .NET 6.0 Runtime installed on the server
 - [ ] Kudu installed and configured on your IIS server
 - [ ] Git installed on the server (for Git-based deployment)
 - [ ] Administrator privileges on the IIS server
@@ -72,7 +72,7 @@ If deploying to Azure Web Apps:
 
 1. **Create Azure Web App**:
    ```bash
-   az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name myIISRecyclerApp --runtime "DOTNETCORE|8.0"
+   az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name myIISRecyclerApp --runtime "DOTNETCORE|6.0"
    ```
 
 2. **Configure App Settings**:
@@ -151,7 +151,7 @@ In your Uptime Kuma dashboard:
 3. **IIS Module Not Found**:
    ```cmd
    # Install ASP.NET Core Module
-   # Download from: https://dotnet.microsoft.com/en-us/download/dotnet/8.0
+   # Download from: https://dotnet.microsoft.com/en-us/download/dotnet/6.0
    ```
 
 ### Verification Commands
