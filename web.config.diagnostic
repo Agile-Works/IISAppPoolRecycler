@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <location path="." inheritInChildApplications="false">
+    <system.webServer>
+      <!-- Remove default IIS handlers that might interfere -->
+      <handlers>
+        <remove name="ExtensionlessUrlHandler-Integrated-4.0" />
+        <remove name="OPTIONSVerbHandler" />
+        <remove name="TRACEVerbHandler" />
+        <add name="aspNetCore" path="*" verb="*" modules="AspNetCoreModuleV2" resourceType="Unspecified" />
+      </handlers>
+      
+      <!-- ASP.NET Core Module Configuration -->
+      <aspNetCore processPath="dotnet" 
+                  arguments=".\IISAppPoolRecycler.dll" 
+                  stdoutLogEnabled="true" 
+                  stdoutLogFile=".\logs\stdout" 
+                  hostingModel="inprocess"
+                  forwardWindowsAuthToken="false"
+                  startupTimeLimit="120"
+                  shutdownTimeLimit="10">
+        <environmentVariables>
+          <environmentVariable name="ASPNETCORE_ENVIRONMENT" value="Production" />
+          <environmentVariable name="DOTNET_USE_POLLING_FILE_WATCHER" value="true" />
+          <environmentVariable name="ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS" value="true" />
+        </environmentVariables>
+      </aspNetCore>
+      
+      <!-- Remove WebDAV to prevent conflicts -->
+      <modules>
+        <remove name="WebDAVModule" />
+      </modules>
+      
+      <!-- Let ASP.NET Core handle routing -->
+      <defaultDocument enabled="false" />
+      
+      <!-- Let ASP.NET Core handle errors -->
+      <httpErrors existingResponse="PassThrough" />
+      
+      <!-- Security settings -->
+      <security>
+        <requestFiltering>
+          <verbs>
+            <add verb="OPTIONS" allowed="true" />
+            <add verb="GET" allowed="true" />
+            <add verb="POST" allowed="true" />
+            <add verb="PUT" allowed="true" />
+            <add verb="DELETE" allowed="true" />
+          </verbs>
+          <requestLimits maxAllowedContentLength="52428800" />
+        </requestFiltering>
+      </security>
+      
+      <!-- Response headers for security -->
+      <httpProtocol>
+        <customHeaders>
+          <add name="X-Content-Type-Options" value="nosniff" />
+          <add name="X-Frame-Options" value="SAMEORIGIN" />
+          <add name="X-XSS-Protection" value="1; mode=block" />
+        </customHeaders>
+      </httpProtocol>
+    </system.webServer>
+  </location>
+  
+  <!-- System.Web section for compatibility -->
+  <system.web>
+    <compilation tempDirectory="%TEMP%" />
+  </system.web>
+</configuration>
