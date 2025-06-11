@@ -1,0 +1,44 @@
+# IIS App Pool Recycler API Testing
+
+@baseUrl = https://localhost:5001
+
+### Test webhook endpoint with Uptime Kuma payload
+POST {{baseUrl}}/api/webhook/uptime-kuma
+Content-Type: application/json
+
+{
+  "monitor": {
+    "url": "https://example.com",
+    "name": "Example Site"
+  },
+  "heartbeat": {
+    "status": 0,
+    "time": "2025-06-10T10:00:00Z",
+    "msg": "Site is down"
+  }
+}
+
+### Manual recycle by URL
+POST {{baseUrl}}/api/webhook/recycle
+Content-Type: application/json
+
+{
+  "url": "https://example.com"
+}
+
+### Manual recycle by app pool name
+POST {{baseUrl}}/api/webhook/recycle
+Content-Type: application/json
+
+{
+  "appPoolName": "DefaultAppPool"
+}
+
+### Lookup app pool for URL
+GET {{baseUrl}}/api/webhook/lookup/https://example.com
+
+### Get all sites
+GET {{baseUrl}}/api/webhook/sites
+
+### Get all app pools
+GET {{baseUrl}}/api/webhook/app-pools
