@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <location path="." inheritInChildApplications="false">
+    <system.webServer>
+      <!-- Essential handlers for ASP.NET Core -->
+      <handlers>
+        <remove name="ExtensionlessUrlHandler-Integrated-4.0" />
+        <remove name="OPTIONSVerbHandler" />
+        <remove name="TRACEVerbHandler" />
+        <add name="aspNetCore" path="*" verb="*" modules="AspNetCoreModuleV2" resourceType="Unspecified" />
+      </handlers>
+      
+      <!-- ASP.NET Core Module Configuration -->
+      <aspNetCore processPath="dotnet" 
+                  arguments=".\IISAppPoolRecycler.dll" 
+                  stdoutLogEnabled="true" 
+                  stdoutLogFile=".\logs\stdout" 
+                  hostingModel="inprocess"
+                  startupTimeLimit="120"
+                  requestTimeout="00:20:00">
+        <environmentVariables>
+          <environmentVariable name="ASPNETCORE_ENVIRONMENT" value="Production" />
+          <environmentVariable name="ASPNETCORE_URLS" value="http://*:80" />
+        </environmentVariables>
+      </aspNetCore>
+      
+      <!-- Essential modules -->
+      <modules>
+        <remove name="WebDAVModule" />
+      </modules>
+      
+      <!-- Let ASP.NET Core handle everything -->
+      <defaultDocument enabled="false" />
+      <httpErrors existingResponse="PassThrough" />
+      
+      <!-- Basic security -->
+      <httpProtocol>
+        <customHeaders>
+          <add name="X-Content-Type-Options" value="nosniff" />
+        </customHeaders>
+      </httpProtocol>
+    </system.webServer>
+  </location>
+</configuration>
